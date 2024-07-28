@@ -1,9 +1,10 @@
 import { cart, remove_from_cart, update_delivery_option } from './cart.js';
-import { products } from '../data/products.js';
+import { products , get_product } from '../data/products.js';
 import { hello } from 'https://unpkg.com/supersimpledev@1.0.1/hello.esm.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
-import { delivery_options } from './delivery_options.js';
-
+import { delivery_options , get_delivery_Option} from './delivery_options.js';
+import {render_payment_summary} from './payment_summary.js';
+render_payment_summary();
 // hello();
 // the below is part of an external library called dayjs read its documentation on internet "day js documentation" it has all these functions in it
 // dayjs();
@@ -20,21 +21,15 @@ function render_order_summary() {
   let cartSummaryHTML = ``;
   cart.forEach((cart_item) => {
     const productId = cart_item.productId;
-    let matchingItem;
-    products.forEach((product) => {
-      if (productId === product.id) {
-        matchingItem = product;
-      }
-
-    });
+    const matchingItem = get_product(productId);
     // console.log(matchingItem);
     const delivery_option_id = cart_item.delivery_optionId;
-    let deliveryOption;
-    delivery_options.forEach((option) => {
-      if (option.id === delivery_option_id) {
-        deliveryOption = option;
-      }
-    });
+    const deliveryOption = get_delivery_Option(delivery_option_id);
+    // delivery_options.forEach((option) => {
+    //   if (option.id === delivery_option_id) {
+    //     deliveryOption = option;
+    //   }
+    // });
 
     const today = dayjs();
     const delivery_date = today.add(
