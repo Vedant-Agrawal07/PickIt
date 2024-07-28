@@ -136,6 +136,7 @@ function render_order_summary() {
 
       update_delivery_option(product_id, delivery_option_id);
       render_order_summary();
+      render_payment_summary();
     });
   });
 }
