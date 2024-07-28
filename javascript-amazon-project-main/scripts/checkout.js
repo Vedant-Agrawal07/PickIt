@@ -1,12 +1,12 @@
-import { cart, remove_from_cart } from './cart.js';
+import { cart, remove_from_cart, update_delivery_option } from './cart.js';
 import { products } from '../data/products.js';
 import { hello } from 'https://unpkg.com/supersimpledev@1.0.1/hello.esm.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import { delivery_options } from './delivery_options.js';
 
-hello();
+// hello();
 // the below is part of an external library called dayjs read its documentation on internet "day js documentation" it has all these functions in it
-dayjs();
+// dayjs();
 // console.log(dayjs());
 const today = dayjs();
 const delivery_date = today.add(7, 'days');
@@ -96,7 +96,9 @@ function delivery_optionHTML(matchingItem, cart_item) {
     const is_checked = delivery_option.id ===
       cart_item.delivery_optionId;
 
-    html += `<div class="delivery-option">
+    html += `<div class="delivery-option js_delivery_option"
+    data-product-id = "${matchingItem.id}"
+    data-delivery-option-id="${delivery_option.id}" ">
             <input type="radio" 
             ${is_checked ? 'checked' : ''}
             
@@ -124,4 +126,15 @@ document.querySelectorAll(`.js_delete_link`).forEach((link) => {
     console.log(cart);
     document.querySelector(`.cart-item-${productId}`).remove();
   })
-})
+});
+
+document.querySelectorAll(`.js_delivery_option`).forEach((element) => {
+  element.addEventListener(`click`, () => {
+    const product_id = element.dataset.productId
+    const delivery_option_id = element.dataset.deliveryOptionId
+    // console.log(delivery_option_id);
+    // console.log(element.dataset.productId);
+    
+    update_delivery_option(product_id, delivery_option_id);
+  });
+});

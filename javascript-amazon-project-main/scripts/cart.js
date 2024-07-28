@@ -10,7 +10,7 @@ if(!cart){
     {
       productId:`15b6fc6f-327a-4ec4-896f-486349e85a3d`,
       quantity:1,
-      delivery_optionId:`2`
+      delivery_optionId:`1`
     }];
 }
 
@@ -28,4 +28,18 @@ export function remove_from_cart(productId){
 
 export function save_to_storage(){
   localStorage.setItem('cart' , JSON.stringify(cart));
+}
+
+
+export function update_delivery_option(product_id , delivery_option_id){
+  let matching_item;
+  cart.forEach((item) => {
+    if (product_id === item.productId) {
+      matching_item = item;
+    }
+  });
+
+    matching_item.delivery_optionId= delivery_option_id;
+    save_to_storage();
+
 }
