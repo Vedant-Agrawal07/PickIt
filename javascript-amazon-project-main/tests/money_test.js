@@ -1,4 +1,4 @@
-function format_currency(price_cents) {
+export function format_currency(price_cents) {
   return (Math.round(price_cents) / 100).toFixed(2)
 }
 
