@@ -4,7 +4,7 @@ import { hello } from 'https://unpkg.com/supersimpledev@1.0.1/hello.esm.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import { delivery_options , get_delivery_Option} from './delivery_options.js';
 import {render_payment_summary} from './payment_summary.js';
-import './cart_oop.js';
+import './cart_class.js';
 render_payment_summary();
 // hello();
 // the below is part of an external library called dayjs read its documentation on internet "day js documentation" it has all these functions in it
