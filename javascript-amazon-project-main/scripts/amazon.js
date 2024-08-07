@@ -1,4 +1,4 @@
-import {cart , save_to_storage} from './cart.js';
+import { cart, add_to_cart, save_to_storage } from './cart.js';
 import { products } from '../data/products.js';
 
 
@@ -66,7 +66,7 @@ products.forEach((product) => {
           </div>
 
           <div class="product-price">
-            $${product.priceCents/ 100}
+            $${product.priceCents / 100}
           </div>
 
           <div class="product-quantity-container">
@@ -99,45 +99,13 @@ products.forEach((product) => {
 });
 // console.log(productsHtml);
 document.querySelector(`.products-grid`).innerHTML = productsHtml;
-
-
-
 document.querySelectorAll(`.js_add_to_cart`).forEach((button) => {
   button.addEventListener(`click`, () => {
     // console.log(`added product`);
     // console.log(button.dataset); // button.dataset works as a object so in the console it shows productName having the prodiuct name so we used that
     // console.log(button.dataset.productName);
-
-    const product_id = button.dataset.productId;
-    let matching_item;
-    const options = document.querySelector(`.js-select-${product_id}`).value;
-    const item_quantity = Number(options);
-    // console.log(item_quantity);
-    cart.forEach((item) => {
-      if (product_id === item.productId) {
-        matching_item = item;
-      }
-    });
-    if (matching_item) {
-      matching_item.quantity += item_quantity;
-    }
-    else {
-      cart.push({
-        productId: product_id,
-        quantity: item_quantity,
-        delivery_optionId: `1`
-      });
-    }
-    let cart_quantity = 0;
-    cart.forEach((item) => {
-      cart_quantity += item.quantity
-    });
-    console.log(cart_quantity);
+  const product_id = button.dataset.productId;
+    add_to_cart(product_id);
     console.log(cart);
-    document.querySelector(`.cart-quantity`).innerHTML = cart_quantity;
-    save_to_storage();
   });
-  
-  // console.log(cart);
-})
-console.log(cart)
+});

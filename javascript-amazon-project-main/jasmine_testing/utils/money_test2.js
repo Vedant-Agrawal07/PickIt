@@ -1,4 +1,4 @@
-import { format_currency } from '../tests/money_test.js';
+import { format_currency } from '../../tests/money_test.js';
 // the function below is given by jasmine
 describe('test_suite:format_currency', () => {
   it('converts cents to dollars', () => {
