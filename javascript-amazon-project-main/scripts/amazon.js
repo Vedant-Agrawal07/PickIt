@@ -1,7 +1,11 @@
 import { cart, add_to_cart, save_to_storage } from './cart.js';
-import { products } from '../data/products.js';
+// import { products } from '../data/products.js';
+import { products , loadProducts } from '../data/products-via-backend.js';
+
+loadProducts(render_products_grid);
 
 
+function render_products_grid(){
 // export const products = [{
 //   image: `images/products/athletic-cotton-socks-6-pairs.jpg`,
 //   name: `Black and Gray Athletic Cotton Socks - 6 Pairs`,
@@ -109,3 +113,4 @@ document.querySelectorAll(`.js_add_to_cart`).forEach((button) => {
     console.log(cart);
   });
 });
+};
