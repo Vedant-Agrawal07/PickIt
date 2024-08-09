@@ -1,4 +1,3 @@
-
 export function get_product(productId) {
   let matchingItem;
   products.forEach((product) => {
@@ -43,6 +42,17 @@ class Product {
 //   ]
 // });
 // console.log(product1);
+
+
+// const date = new Date(); // this Date() is a built in class
+// console.log(date);
+// console.log(date.toLocaleTimeString());
+
+function log_this(){
+  console.log(this);
+}
+log_this();
+log_this.call(`hello`); // same as running function but can change value of 'this' to whatever we want
 
 export const products = [
   {
