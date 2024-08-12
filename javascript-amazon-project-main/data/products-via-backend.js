@@ -55,6 +55,35 @@ log_this();
 log_this.call(`hello`); // same as running function but can change value of 'this' to whatever we want
 
 export let products = [];
+
+
+export function loadProducts_fetch(){
+  // fetch by default make a GET request
+  // fetch uses promise
+  // the data from trhe backend via fetch will be saved in the response parameter
+  const promise_fetch = fetch('https://supersimplebackend.dev/products').then((response)=>{
+      // console.log(response);
+      // the below was done to get the response but this is an asynchronous code as it returns a promise hence we need to wait for this to finish
+      return response.json(); // returns for returning the prmise by thois json and also helps in waiting before going to then
+      // fetch helped to convert the json into object directly without using parse
+  }).then((productData)=>{
+      // console.log(productData);
+      products = productData.map((product_detail) => {
+        return (new Product(product_detail));
+      });
+      console.log('load-products');
+      // fun();
+  });
+
+  return promise_fetch;
+}
+/*
+loadProducts_fetch().then(()=>{
+  console.log('next step')
+});
+*/
+
+
 export function loadProducts(fun) {
   const xhr = new XMLHttpRequest();
 
