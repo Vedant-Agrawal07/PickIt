@@ -10,12 +10,24 @@ import '../data/products-via-backend.js'
 import { loadProducts, loadProducts_fetch } from '../data/products-via-backend.js';
 
 
+// async can only be used with promises
+async function loadPage() {
+  console.log('load page');
+
+  await loadProducts_fetch();  // woks same as 'then' can only work when inside async
+
+  render_payment_summary();
+  render_order_summary();
+}
+loadPage().then(() => {
+  console.log('nextttt-step');
+})
+
+
 // 'resolve' is a function helps to control when to go to the next step
 // console.log('promise');
 loadProducts_fetch().then(() => {
   // console.log('next step')
-  render_payment_summary();
-  render_order_summary();
 })
 
 // loadProducts(() => {
