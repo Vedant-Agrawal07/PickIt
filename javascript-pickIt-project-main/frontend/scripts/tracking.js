@@ -1,9 +1,11 @@
+import { cart_quantity } from "./cart.js";
 import { fetch_orders, orders } from "./orders.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
 
 await render_tracking();
 
 async function render_tracking() {
+  document.querySelector(".cart-quantity").innerHTML = cart_quantity;
   await fetch_orders();
    document.querySelector(".logout_button").addEventListener("click", () => {
      localStorage.removeItem("user");

@@ -11,6 +11,12 @@ import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
 import { render_payment_summary } from "./payment_summary.js";
 
 export async function render_order_summary() {
+  // let cart_quantity=0;
+  
+  //   cart.products.forEach((item)=>{
+  //     cart_quantity += item.quantity;
+  //     document.querySelector(".cart-quantity").innerHTML = cart_quantity;
+  //   })
   
   // console.log(cart);
   let cartSummaryHTML = ``;

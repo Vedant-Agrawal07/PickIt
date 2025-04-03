@@ -15,6 +15,11 @@ export async function load_from_storage() {
   }
 }
 
+export let cart_quantity=0;
+cart.products.forEach((item)=>{
+cart_quantity += item.quantity;
+})
+
 async function fetchCart() {
   let config = {
     headers: {
@@ -68,7 +73,7 @@ export async function add_to_cart(product_id) {
 
   cart = response.data;
 
-  let cart_quantity = 0;
+   cart_quantity = 0;
   cart.products.forEach((item) => {
     cart_quantity += item.quantity;
   });

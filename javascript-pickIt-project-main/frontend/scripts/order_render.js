@@ -1,7 +1,8 @@
 import { orders, order_placed, fetch_orders } from "./orders.js";
 // import { products, get_product } from "../data/products.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
-import { add_to_cart, cart, load_from_storage } from "./cart.js";
+import { add_to_cart, cart, cart_quantity, load_from_storage } from "./cart.js";
+
 
 let user_data = JSON.parse(localStorage.getItem("user"));
 if (user_data) {
@@ -11,6 +12,9 @@ if (user_data) {
 }
 
 async function render_orders() {
+ 
+    document.querySelector(".cart-quantity").innerHTML = cart_quantity;
+  
   // await load_from_storage();
   await fetch_orders();
    document.querySelector(".logout_button").addEventListener("click", () => {

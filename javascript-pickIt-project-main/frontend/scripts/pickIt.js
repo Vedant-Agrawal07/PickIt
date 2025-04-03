@@ -1,4 +1,4 @@
-import { cart, add_to_cart } from "./cart.js";
+import { cart, add_to_cart, cart_quantity } from "./cart.js";
 
 let user_data = JSON.parse(localStorage.getItem("user"));
 
@@ -39,7 +39,14 @@ document.querySelector(".search-button").addEventListener("click", async () => {
 const response = await axios.get("http://localhost:5000/api/product");
 await render_products_grid(response.data);
 
+
 async function render_products_grid(fetchproducts) {
+  
+
+  
+    document.querySelector(".cart-quantity").innerHTML = cart_quantity;
+
+
   document.querySelector(".logout_button").addEventListener("click", () => {
     localStorage.removeItem("user");
     // localStorage.removeItem("cart");
