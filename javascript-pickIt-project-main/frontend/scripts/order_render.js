@@ -8,7 +8,7 @@ let user_data = JSON.parse(localStorage.getItem("user"));
 if (user_data) {
   await render_orders();
 } else {
-  window.location.href = "testinggg.html";
+  window.location.href = "loginPage.html";
 }
 
 async function render_orders() {
@@ -20,7 +20,7 @@ async function render_orders() {
    document.querySelector(".logout_button").addEventListener("click", () => {
      localStorage.removeItem("user");
      // localStorage.removeItem("cart");
-     window.location.href = "testinggg.html";
+     window.location.href = "loginPage.html";
    });
   let ordershtml = "";
 

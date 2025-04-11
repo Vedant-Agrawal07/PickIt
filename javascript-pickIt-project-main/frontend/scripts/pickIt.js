@@ -3,7 +3,7 @@ import { cart, add_to_cart, cart_quantity } from "./cart.js";
 let user_data = JSON.parse(localStorage.getItem("user"));
 
 if (!user_data) {
-  window.location.href = "testinggg.html";
+  window.location.href = "loginPage.html";
 }
 
 let search;
@@ -50,7 +50,7 @@ async function render_products_grid(fetchproducts) {
   document.querySelector(".logout_button").addEventListener("click", () => {
     localStorage.removeItem("user");
     // localStorage.removeItem("cart");
-    window.location.href = "testinggg.html";
+    window.location.href = "loginPage.html";
   });
 
   let products = fetchproducts;

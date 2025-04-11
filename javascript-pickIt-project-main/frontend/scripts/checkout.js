@@ -5,7 +5,7 @@ let user_data = JSON.parse(localStorage.getItem("user"));
 if (user_data) {
   await loadPage();
 } else {
-  window.location.href = "testinggg.html";
+  window.location.href = "loginPage.html";
 }
 
 async function loadPage() {

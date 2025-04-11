@@ -10,7 +10,7 @@ async function render_tracking() {
    document.querySelector(".logout_button").addEventListener("click", () => {
      localStorage.removeItem("user");
      // localStorage.removeItem("cart");
-     window.location.href = "testinggg.html";
+     window.location.href = "loginPage.html";
    });
   let track_order = ``;
   let globalIndex = 0;
