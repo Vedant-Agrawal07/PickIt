@@ -39,13 +39,8 @@ document.querySelector(".search-button").addEventListener("click", async () => {
 const response = await axios.get("http://localhost:5000/api/product");
 await render_products_grid(response.data);
 
-
 async function render_products_grid(fetchproducts) {
-  
-
-  
-    document.querySelector(".cart-quantity").innerHTML = cart_quantity;
-
+  document.querySelector(".cart-quantity").innerHTML = cart_quantity;
 
   document.querySelector(".logout_button").addEventListener("click", () => {
     localStorage.removeItem("user");
@@ -100,8 +95,10 @@ async function render_products_grid(fetchproducts) {
 
           <div class="product-spacer"></div>
 
-          <div class="added-to-cart">
-            <img src="/javascript-pickIt-project-main/images/icons/checkmark.png">
+          <div style="opacity:0%;" class="added-to-cart-${product._id}">
+            <img style="opacity:0%;" class="added-to-cart-img-${
+              product._id
+            }" src="/javascript-pickIt-project-main/images/icons/checkmark.png">
             Added
           </div>
 
@@ -118,6 +115,14 @@ async function render_products_grid(fetchproducts) {
   document.querySelectorAll(`.js_add_to_cart`).forEach((button) => {
     button.addEventListener(`click`, () => {
       const product_id = button.dataset.productId;
+      const element = document.querySelector(`.added-to-cart-${product_id}`);
+      const img = document.querySelector(`.added-to-cart-img-${product_id}`);
+      element.classList.add("added-to-cart");
+      img.classList.add("added-to-cart-img");
+      const animationTimeout = setTimeout(()=>{
+        element.classList.remove("added-to-cart");
+          img.classList.remove("added-to-cart-img");
+      },2000)
       add_to_cart(product_id);
       console.log(cart);
     });
