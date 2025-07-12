@@ -8,7 +8,7 @@ const fetchOrders = expressAsyncHandler(async (req, res) => {
     .populate("products.productId");
   try {
     if (orders.length > 0) {
-      // await orders.populate("owner", "-password");
+       // await orders.populate("owner", "-password");
       // await orders.populate("products.productId");
       res.status(200).send(orders);
       return;

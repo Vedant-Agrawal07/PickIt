@@ -1,5 +1,5 @@
 import { orders, order_placed, fetch_orders } from "./orders.js";
-// import { products, get_product } from "../data/products.js";
+//  import { products, get_product } from "../data/products.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
 import { add_to_cart, cart, cart_quantity, load_from_storage } from "./cart.js";
 
@@ -24,8 +24,8 @@ async function render_orders() {
    });
   let ordershtml = "";
 
-  console.log(cart);
-  console.log("hello");
+  // console.log(cart);
+  // console.log("hello");
 
   orders.forEach((element, index) => {
     ordershtml += `
@@ -52,7 +52,7 @@ async function render_orders() {
          <div class="order-details-grid">`;
     const Products = element.products;
     Products.forEach((product) => {
-      console.log(product.productId._id);
+      // console.log(product.productId._id);
 
       ordershtml += `<div class="product-image-container">
               <img src="/javascript-pickIt-project-main/${product.productId.image}">
@@ -89,7 +89,7 @@ async function render_orders() {
   document.querySelectorAll(".buy-again-button").forEach((element) => {
     element.addEventListener("click", async () => {
       let productId = element.dataset.buyAgain;
-      console.log(productId);
+      // console.log(productId);
       add_to_cart(productId);
     });
   });

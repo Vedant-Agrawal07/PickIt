@@ -10,7 +10,7 @@ import authUser from "../middleware/authUser.js";
 
 const router = express.Router();
 
-
+ 
 router.get("/" , authUser, fetchCart);
 router.post("/add" , authUser, addToCart);
 router.post("/remove" , authUser,removeFromCart);

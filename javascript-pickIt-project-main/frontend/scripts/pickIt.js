@@ -119,12 +119,12 @@ async function render_products_grid(fetchproducts) {
       const img = document.querySelector(`.added-to-cart-img-${product_id}`);
       element.classList.add("added-to-cart");
       img.classList.add("added-to-cart-img");
-      const animationTimeout = setTimeout(()=>{
+      const animationTimeout = setTimeout(() => {
         element.classList.remove("added-to-cart");
-          img.classList.remove("added-to-cart-img");
-      },2000)
+        img.classList.remove("added-to-cart-img");
+      }, 2000);
       add_to_cart(product_id);
-      console.log(cart);
+      // console.log(cart);
     });
   });
 }

@@ -1,5 +1,5 @@
 import { cart, load_from_storage } from "./cart.js";
-// import { get_product } from "../data/products.js";
+//  import { get_product } from "../data/products.js";
 import { get_delivery_Option } from "./delivery_options.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
 import { add_order } from "./orders.js";

@@ -7,11 +7,11 @@ await render_tracking();
 async function render_tracking() {
   document.querySelector(".cart-quantity").innerHTML = cart_quantity;
   await fetch_orders();
-   document.querySelector(".logout_button").addEventListener("click", () => {
-     localStorage.removeItem("user");
-     // localStorage.removeItem("cart");
-     window.location.href = "loginPage.html";
-   });
+  document.querySelector(".logout_button").addEventListener("click", () => {
+    localStorage.removeItem("user");
+    // localStorage.removeItem("cart");
+    window.location.href = "loginPage.html";
+  });
   let track_order = ``;
   let globalIndex = 0;
   orders.forEach((element) => {

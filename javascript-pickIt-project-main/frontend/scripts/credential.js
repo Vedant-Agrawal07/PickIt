@@ -33,6 +33,8 @@ document.querySelector(".signup_button").addEventListener("click", () => {
   document.querySelector(".main").innerHTML = html;
   signUp();
 });
+
+
 function signUp() {
   document
     .querySelector(".signup_submit_button")
@@ -56,11 +58,13 @@ function signUp() {
 
           console.log(data);
           localStorage.setItem("user", JSON.stringify(data));
-          window.location.href = "pickIt.html"
+          window.location.href = "pickIt.html";
         }
       }
     });
 }
+
+
 function login() {
   document
     .querySelector(".login_submit_button")
@@ -86,6 +90,6 @@ function login() {
     });
 }
 
-if(JSON.parse(localStorage.getItem("user"))){
-  window.location.href = "pickIt.html"
+if (JSON.parse(localStorage.getItem("user"))) {
+  window.location.href = "pickIt.html";
 }

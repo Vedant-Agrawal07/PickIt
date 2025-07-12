@@ -1,6 +1,6 @@
 import expressAsyncHandler from "express-async-handler";
 import Cart from "../models/cartModel.js";
-// import User from "../models/userModel.js";
+//  import User from "../models/userModel.js";
 
 const fetchCart = expressAsyncHandler(async (req, res) => {
   let fetchCart = await Cart.findOne({ owner: req.user._id })
